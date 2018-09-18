@@ -1,0 +1,44 @@
+BackendBundle\Entity\TblOrganizacionesGrupo:
+    type: entity
+    table: tbl_organizaciones_grupo
+    indexes:
+        IDX_8AAEA6D7B633D85D:
+            columns:
+                - org_type_id
+    id:
+        idOrgGrupo:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_org_grupo
+            generator:
+                strategy: SEQUENCE
+    fields:
+        orgGrupoName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: org_grupo_name
+        orgGrupoCode:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: org_grupo_code
+    manyToOne:
+        orgType:
+            targetEntity: TblOrganizacionesTipo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                org_type_id:
+                    referencedColumnName: id_org_type
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

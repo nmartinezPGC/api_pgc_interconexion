@@ -1,0 +1,43 @@
+BackendBundle\Entity\TblSectoresClasificacion:
+    type: entity
+    table: tbl_sectores_clasificacion
+    indexes:
+        IDX_A1DB77FE59D83523:
+            columns:
+                - sector_schema_id
+    id:
+        sectorClassId:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: sector_class_id
+            generator:
+                strategy: SEQUENCE
+    fields:
+        sectorClassName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: sector_class_name
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    manyToOne:
+        sectorSchema:
+            targetEntity: TblSectoresSchema
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sector_schema_id:
+                    referencedColumnName: sector_schema_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

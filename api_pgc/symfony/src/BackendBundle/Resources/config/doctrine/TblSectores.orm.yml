@@ -1,0 +1,63 @@
+BackendBundle\Entity\TblSectores:
+    type: entity
+    table: tbl_sectores
+    indexes:
+        IDX_AEC413812FDEE789:
+            columns:
+                - parent_sector_id
+        IDX_AEC4138159D83523:
+            columns:
+                - sector_schema_id
+    id:
+        idSector:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_sector
+            generator:
+                strategy: SEQUENCE
+    fields:
+        sectorName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: sector_name
+        sectorCodeOfficial:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: sector_code_official
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    manyToOne:
+        parentSector:
+            targetEntity: TblSectores
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_sector_id:
+                    referencedColumnName: id_sector
+            orphanRemoval: false
+        sectorSchema:
+            targetEntity: TblSectoresSchema
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sector_schema_id:
+                    referencedColumnName: sector_schema_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

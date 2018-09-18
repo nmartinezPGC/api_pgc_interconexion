@@ -1,0 +1,29 @@
+BackendBundle\Entity\TblSectoresSchema:
+    type: entity
+    table: tbl_sectores_schema
+    id:
+        sectorSchemaId:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: sector_schema_id
+            generator:
+                strategy: SEQUENCE
+    fields:
+        sectorSchemaCode:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: sector_schema_code
+        sectorSchemaName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: sector_schema_name
+    lifecycleCallbacks: {  }

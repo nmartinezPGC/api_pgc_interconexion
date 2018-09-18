@@ -1,0 +1,70 @@
+BackendBundle\Entity\TblOrganizaciones:
+    type: entity
+    table: tbl_organizaciones
+    indexes:
+        IDX_4E7613A3F276D496:
+            columns:
+                - id_org_grupo
+    id:
+        idOrg:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_org
+            generator:
+                strategy: SEQUENCE
+    fields:
+        orgName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: org_name
+        descripcion:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        direccion:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        orgUrl:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: org_url
+        orgAcronimo:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: org_acronimo
+        orgProposito:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: org_proposito
+    manyToOne:
+        idOrgGrupo:
+            targetEntity: TblOrganizacionesGrupo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_org_grupo:
+                    referencedColumnName: id_org_grupo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

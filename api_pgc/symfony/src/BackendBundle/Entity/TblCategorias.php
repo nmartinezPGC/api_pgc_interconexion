@@ -1,0 +1,142 @@
+<?php
+
+namespace BackendBundle\Entity;
+
+/**
+ * TblCategorias
+ */
+class TblCategorias
+{
+    /**
+     * @var integer
+     */
+    private $idCategoria;
+
+    /**
+     * @var string
+     */
+    private $categoriaValor;
+
+    /**
+     * @var integer
+     */
+    private $index;
+
+    /**
+     * @var boolean
+     */
+    private $borrado;
+
+    /**
+     * @var \BackendBundle\Entity\TblCategoriaClase
+     */
+    private $idClaseCategoria;
+
+
+    /**
+     * Get idCategoria
+     *
+     * @return integer
+     */
+    public function getIdCategoria()
+    {
+        return $this->idCategoria;
+    }
+
+    /**
+     * Set categoriaValor
+     *
+     * @param string $categoriaValor
+     *
+     * @return TblCategorias
+     */
+    public function setCategoriaValor($categoriaValor)
+    {
+        $this->categoriaValor = $categoriaValor;
+
+        return $this;
+    }
+
+    /**
+     * Get categoriaValor
+     *
+     * @return string
+     */
+    public function getCategoriaValor()
+    {
+        return $this->categoriaValor;
+    }
+
+    /**
+     * Set index
+     *
+     * @param integer $index
+     *
+     * @return TblCategorias
+     */
+    public function setIndex($index)
+    {
+        $this->index = $index;
+
+        return $this;
+    }
+
+    /**
+     * Get index
+     *
+     * @return integer
+     */
+    public function getIndex()
+    {
+        return $this->index;
+    }
+
+    /**
+     * Set borrado
+     *
+     * @param boolean $borrado
+     *
+     * @return TblCategorias
+     */
+    public function setBorrado($borrado)
+    {
+        $this->borrado = $borrado;
+
+        return $this;
+    }
+
+    /**
+     * Get borrado
+     *
+     * @return boolean
+     */
+    public function getBorrado()
+    {
+        return $this->borrado;
+    }
+
+    /**
+     * Set idClaseCategoria
+     *
+     * @param \BackendBundle\Entity\TblCategoriaClase $idClaseCategoria
+     *
+     * @return TblCategorias
+     */
+    public function setIdClaseCategoria(\BackendBundle\Entity\TblCategoriaClase $idClaseCategoria = null)
+    {
+        $this->idClaseCategoria = $idClaseCategoria;
+
+        return $this;
+    }
+
+    /**
+     * Get idClaseCategoria
+     *
+     * @return \BackendBundle\Entity\TblCategoriaClase
+     */
+    public function getIdClaseCategoria()
+    {
+        return $this->idClaseCategoria;
+    }
+}
+

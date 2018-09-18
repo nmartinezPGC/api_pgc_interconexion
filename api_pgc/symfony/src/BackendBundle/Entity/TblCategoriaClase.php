@@ -1,0 +1,171 @@
+<?php
+
+namespace BackendBundle\Entity;
+
+/**
+ * TblCategoriaClase
+ */
+class TblCategoriaClase
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $nombreCategoria;
+
+    /**
+     * @var string
+     */
+    private $keyname;
+
+    /**
+     * @var string
+     */
+    private $descripcion;
+
+    /**
+     * @var boolean
+     */
+    private $isMultiselect;
+
+    /**
+     * @var boolean
+     */
+    private $isOrdered;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombreCategoria
+     *
+     * @param string $nombreCategoria
+     *
+     * @return TblCategoriaClase
+     */
+    public function setNombreCategoria($nombreCategoria)
+    {
+        $this->nombreCategoria = $nombreCategoria;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreCategoria
+     *
+     * @return string
+     */
+    public function getNombreCategoria()
+    {
+        return $this->nombreCategoria;
+    }
+
+    /**
+     * Set keyname
+     *
+     * @param string $keyname
+     *
+     * @return TblCategoriaClase
+     */
+    public function setKeyname($keyname)
+    {
+        $this->keyname = $keyname;
+
+        return $this;
+    }
+
+    /**
+     * Get keyname
+     *
+     * @return string
+     */
+    public function getKeyname()
+    {
+        return $this->keyname;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return TblCategoriaClase
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set isMultiselect
+     *
+     * @param boolean $isMultiselect
+     *
+     * @return TblCategoriaClase
+     */
+    public function setIsMultiselect($isMultiselect)
+    {
+        $this->isMultiselect = $isMultiselect;
+
+        return $this;
+    }
+
+    /**
+     * Get isMultiselect
+     *
+     * @return boolean
+     */
+    public function getIsMultiselect()
+    {
+        return $this->isMultiselect;
+    }
+
+    /**
+     * Set isOrdered
+     *
+     * @param boolean $isOrdered
+     *
+     * @return TblCategoriaClase
+     */
+    public function setIsOrdered($isOrdered)
+    {
+        $this->isOrdered = $isOrdered;
+
+        return $this;
+    }
+
+    /**
+     * Get isOrdered
+     *
+     * @return boolean
+     */
+    public function getIsOrdered()
+    {
+        return $this->isOrdered;
+    }
+}
+

@@ -1,0 +1,118 @@
+BackendBundle\Entity\TblProyectos:
+    type: entity
+    table: tbl_proyectos
+    indexes:
+        fki_id_estado:
+            columns:
+                - id_estado
+    id:
+        idRegistro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_registro
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProjecto:
+            type: bigint
+            nullable: true
+            options:
+                unsigned: false
+            column: id_projecto
+        codigoPgc:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: codigo_pgc
+        nombreProyecto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: nombre_proyecto
+        fechaEfectividad:
+            type: date
+            nullable: true
+            column: fecha_efectividad
+        fechaFirma:
+            type: date
+            nullable: true
+            column: fecha_firma
+        fechaFinalizacion:
+            type: date
+            nullable: true
+            column: fecha_finalizacion
+        descripcionProyecto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: descripcion_proyecto
+        objetivosProyecto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: objetivos_proyecto
+        resultadosProyecto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: resultados_proyecto
+        resultadosEsperados:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: resultados_esperados
+        antecedentesProyecto:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: antecedentes_proyecto
+        estadoProyecto:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: estado_proyecto
+        estadoInformacion:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: estado_informacion
+        codigoSefin:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: codigo_sefin
+    manyToOne:
+        idEstado:
+            targetEntity: TblCategorias
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_estado:
+                    referencedColumnName: id_categoria
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

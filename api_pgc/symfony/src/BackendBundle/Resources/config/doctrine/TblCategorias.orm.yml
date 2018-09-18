@@ -1,0 +1,45 @@
+BackendBundle\Entity\TblCategorias:
+    type: entity
+    table: tbl_categorias
+    indexes:
+        fki_clase_categoria:
+            columns:
+                - id_clase_categoria
+    id:
+        idCategoria:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_categoria
+            generator:
+                strategy: SEQUENCE
+    fields:
+        categoriaValor:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: categoria_valor
+        index:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        borrado:
+            type: boolean
+            nullable: true
+    manyToOne:
+        idClaseCategoria:
+            targetEntity: TblCategoriaClase
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_clase_categoria:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
