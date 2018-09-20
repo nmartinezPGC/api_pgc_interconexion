@@ -1,0 +1,21 @@
+## YAML Template.
+## Routing for projects into PGC
+
+## Routing for All Projects into PGC
+project_allProjects:
+    path: /find-all-projects
+    defaults: { _controller: "AppBundle:Projects/Project:findAllProjects" }
+    methods: POST
+
+## Routing for search Project into PGC, with ID
+project_projectForId:
+    path: /find-project-id
+    defaults: { _controller: "AppBundle:Projects/Project:findProjectForId" }
+    methods: POST
+    
+## Routing for search Project into PGC, with codigoPGC
+project_projectForCode:
+    path: /find-project-code
+    defaults: { _controller: "AppBundle:Projects/Project:findProjectForCode" }
+    methods: POST
+    

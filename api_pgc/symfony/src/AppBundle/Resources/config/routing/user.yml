@@ -1,5 +1,6 @@
 ## YAML Template.
-usuarios_new:
+## Routing for user
+user_new:
     path: /new-user
     defaults: { _controller: "AppBundle:Auth/User:newUser" }
     methods: POST

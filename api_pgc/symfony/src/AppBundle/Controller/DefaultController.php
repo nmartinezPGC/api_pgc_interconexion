@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Description of UserController
+ *
+ * @author Nahum Martinez <nmartinez.salgado@yahoo.com>
+ */
+
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,6 +19,7 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/", name="homepage")
+     * Descripción: Funcion Index de la API
      */
     public function indexAction(Request $request) {
         // replace this example code with whatever you need
@@ -23,19 +30,21 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/pruebas", name="pruebas" )
+     * Descripción: Funcion de prueba para la API, nesesita Token para la
+     * Validacion de la Data
      */
-    public function pruebasAction( Request $request ) {
+    public function pruebasAction(Request $request) {
         // Service Maneger
         $helpers = $this->get("app.helpers");
 
         $data = array();
 
         // Valid Token
-        $hash = $request->get( "authorization", null );
+        $hash = $request->get("authorization", null);
         $authCheck = $helpers->authCheck($hash);
 
         // Validamos el hash
-        if ( $authCheck == true ) {
+        if ($authCheck == true) {
             $em = $this->getDoctrine()->getManager();
 
             $estados = $em->getRepository("BackendBundle:TblCategorias")->findAll();
@@ -57,11 +66,12 @@ class DefaultController extends Controller {
         // Retorno de la Funcion
         return $helpers->json($data);
     }
-    
-    
 
     /**
      * Method: Login de la API
+     * Funcion: FND-00001
+     * @Route("/login", name="login")
+     * Descripción: Funcion de Logeo del Usuario de la API
      * @param json $email Correo del usuario
      * @param json $password Password del usuario
      */
@@ -101,7 +111,7 @@ class DefaultController extends Controller {
                 return $helpers->json(
                                 array(
                                     "status" => "error",
-                                    "data" => "Login inválido, por favor verifica la información de tus credenciales para ingresar !! ",
+                                    "data" => "Login inválido, porfavor verifica la información de tus credenciales para ingresar !! ",
                                 )
                 );
             }
@@ -109,13 +119,13 @@ class DefaultController extends Controller {
             return $helpers->json(
                             array(
                                 "status" => "error",
-                                "data" => "No has enviado los parametros para logearte !! ",
+                                "data" => "No has enviado los parametros para logearte, porfavor ingresa el Email y Password !! ",
                             )
             );
         }
-
-        // Return de la Clase
-        die();
+        // Return de la Clase        
+        // FIN | FND-00001
     }
 
+    // FIN | Clase UserController
 }
