@@ -1,0 +1,53 @@
+BackendBundle\Entity\TblAccesos:
+    type: entity
+    table: tbl_accesos
+    indexes:
+        IDX_CA2A66E4FCF8192D:
+            columns:
+                - id_usuario
+    id:
+        idAcceso:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_acceso
+            generator:
+                strategy: SEQUENCE
+    fields:
+        fechaAcceso:
+            type: date
+            nullable: true
+            options:
+                default: now()
+            column: fecha_acceso
+        horaAcceso:
+            type: time
+            nullable: true
+            column: hora_acceso
+        ipAcceso:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+            column: ip_acceso
+        navegador:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+    manyToOne:
+        idUsuario:
+            targetEntity: TblUsuarios
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usuario:
+                    referencedColumnName: id_usuario
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

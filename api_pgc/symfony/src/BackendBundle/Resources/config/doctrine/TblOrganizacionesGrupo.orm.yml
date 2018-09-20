@@ -2,7 +2,7 @@ BackendBundle\Entity\TblOrganizacionesGrupo:
     type: entity
     table: tbl_organizaciones_grupo
     indexes:
-        IDX_8AAEA6D7B633D85D:
+        tbl_organizaciones_grupo_org_type_id_idx:
             columns:
                 - org_type_id
     id:

@@ -1,0 +1,88 @@
+BackendBundle\Entity\TblUsuarios:
+    type: entity
+    table: tbl_usuarios
+    indexes:
+        fki_instituciones:
+            columns:
+                - id_institucion
+    id:
+        idUsuario:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_usuario
+            generator:
+                strategy: SEQUENCE
+    fields:
+        codUsuario:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: cod_usuario
+        nombre1:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+            column: nombre_1
+        nombre2:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+            column: nombre_2
+        apellido1:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+            column: apellido_1
+        apellido2:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+            column: apellido_2
+        email:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        fechaCreacion:
+            type: date
+            nullable: true
+            options:
+                default: now()
+            column: fecha_creacion
+        activo:
+            type: boolean
+            nullable: true
+            options:
+                default: true
+    manyToOne:
+        idInstitucion:
+            targetEntity: TblInstituciones
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_institucion:
+                    referencedColumnName: id_institucion
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

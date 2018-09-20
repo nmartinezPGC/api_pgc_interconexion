@@ -5,6 +5,9 @@ BackendBundle\Entity\TblCategorias:
         fki_clase_categoria:
             columns:
                 - id_clase_categoria
+        tbl_categorias_id_categoria_idx:
+            columns:
+                - id_categoria
     id:
         idCategoria:
             type: integer

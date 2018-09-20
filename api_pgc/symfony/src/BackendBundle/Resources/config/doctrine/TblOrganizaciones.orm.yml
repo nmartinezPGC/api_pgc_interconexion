@@ -2,6 +2,9 @@ BackendBundle\Entity\TblOrganizaciones:
     type: entity
     table: tbl_organizaciones
     indexes:
+        tbl_organizaciones_id_org_idx:
+            columns:
+                - id_org
         IDX_4E7613A3F276D496:
             columns:
                 - id_org_grupo

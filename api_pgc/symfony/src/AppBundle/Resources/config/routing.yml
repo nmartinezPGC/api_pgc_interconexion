@@ -1,0 +1,9 @@
+## YAML Template.
+## Cargar las Rutas definidas
+app_default:
+    resource: "@AppBundle/Resources/config/routing/default.yml"
+    prefix: /
+    
+app_usuarios:
+    resource: "@AppBundle/Resources/config/routing/usuarios.yml"
+    prefix: /usuarios

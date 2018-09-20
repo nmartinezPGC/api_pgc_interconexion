@@ -36,18 +36,6 @@ BackendBundle\Entity\TblProyectos:
             options:
                 fixed: false
             column: nombre_proyecto
-        fechaEfectividad:
-            type: date
-            nullable: true
-            column: fecha_efectividad
-        fechaFirma:
-            type: date
-            nullable: true
-            column: fecha_firma
-        fechaFinalizacion:
-            type: date
-            nullable: true
-            column: fecha_finalizacion
         descripcionProyecto:
             type: text
             nullable: true
@@ -104,6 +92,27 @@ BackendBundle\Entity\TblProyectos:
             options:
                 fixed: false
             column: codigo_sefin
+        fechaEfectividadConv:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: fecha_efectividad_conv
+        fechaFirmaConv:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: fecha_firma_conv
+        fechaFinalizacionConv:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: fecha_finalizacion_conv
     manyToOne:
         idEstado:
             targetEntity: TblCategorias

@@ -1,45 +1,40 @@
-BackendBundle\Entity\TblCategoriaClase:
+BackendBundle\Entity\TblInstituciones:
     type: entity
-    table: tbl_categoria_clase
-    indexes:
-        tbl_categoria_clase_id_idx:
-            columns:
-                - id
+    table: tbl_instituciones
     id:
-        id:
-            type: bigint
+        idInstitucion:
+            type: integer
             nullable: false
             options:
                 unsigned: false
             id: true
+            column: id_institucion
             generator:
                 strategy: SEQUENCE
     fields:
-        nombreCategoria:
+        codInstitucion:
             type: string
             nullable: true
-            length: 255
+            length: 30
             options:
                 fixed: false
-            column: nombre_categoria
-        keyname:
+            column: cod_institucion
+        nombreInstitucion:
             type: string
             nullable: true
-            length: 255
+            length: 250
             options:
                 fixed: false
-        descripcion:
-            type: text
+            column: nombre_institucion
+        acronimo:
+            type: string
             nullable: true
-            length: null
+            length: 20
             options:
                 fixed: false
-        isMultiselect:
+        activo:
             type: boolean
             nullable: true
-            column: is_multiselect
-        isOrdered:
-            type: boolean
-            nullable: true
-            column: is_ordered
+            options:
+                default: true
     lifecycleCallbacks: {  }

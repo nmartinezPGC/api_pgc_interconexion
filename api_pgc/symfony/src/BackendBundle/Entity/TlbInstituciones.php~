@@ -1,0 +1,141 @@
+<?php
+
+namespace BackendBundle\Entity;
+
+/**
+ * TlbInstituciones
+ */
+class TlbInstituciones
+{
+    /**
+     * @var integer
+     */
+    private $idInstirucion;
+
+    /**
+     * @var string
+     */
+    private $codInstitucion;
+
+    /**
+     * @var string
+     */
+    private $nombreInstitucion;
+
+    /**
+     * @var string
+     */
+    private $acronimo;
+
+    /**
+     * @var boolean
+     */
+    private $activo = true;
+
+
+    /**
+     * Get idInstirucion
+     *
+     * @return integer
+     */
+    public function getIdInstirucion()
+    {
+        return $this->idInstirucion;
+    }
+
+    /**
+     * Set codInstitucion
+     *
+     * @param string $codInstitucion
+     *
+     * @return TlbInstituciones
+     */
+    public function setCodInstitucion($codInstitucion)
+    {
+        $this->codInstitucion = $codInstitucion;
+
+        return $this;
+    }
+
+    /**
+     * Get codInstitucion
+     *
+     * @return string
+     */
+    public function getCodInstitucion()
+    {
+        return $this->codInstitucion;
+    }
+
+    /**
+     * Set nombreInstitucion
+     *
+     * @param string $nombreInstitucion
+     *
+     * @return TlbInstituciones
+     */
+    public function setNombreInstitucion($nombreInstitucion)
+    {
+        $this->nombreInstitucion = $nombreInstitucion;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreInstitucion
+     *
+     * @return string
+     */
+    public function getNombreInstitucion()
+    {
+        return $this->nombreInstitucion;
+    }
+
+    /**
+     * Set acronimo
+     *
+     * @param string $acronimo
+     *
+     * @return TlbInstituciones
+     */
+    public function setAcronimo($acronimo)
+    {
+        $this->acronimo = $acronimo;
+
+        return $this;
+    }
+
+    /**
+     * Get acronimo
+     *
+     * @return string
+     */
+    public function getAcronimo()
+    {
+        return $this->acronimo;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param boolean $activo
+     *
+     * @return TlbInstituciones
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return boolean
+     */
+    public function getActivo()
+    {
+        return $this->activo;
+    }
+}
