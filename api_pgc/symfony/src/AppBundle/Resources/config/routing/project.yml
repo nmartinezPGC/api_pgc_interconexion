@@ -19,3 +19,9 @@ project_projectForCode:
     defaults: { _controller: "AppBundle:Projects/Project:findProjectForCode" }
     methods: POST
     
+## Routing for search Project into PGC, with Name in PGC
+project_projectForName:
+    path: /find-project-name
+    defaults: { _controller: "AppBundle:Projects/Project:findProjectForName" }
+    methods: POST
+    

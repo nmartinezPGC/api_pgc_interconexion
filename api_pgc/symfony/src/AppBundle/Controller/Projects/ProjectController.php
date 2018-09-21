@@ -259,4 +259,103 @@ class ProjectController extends Controller {
         // FIN | FND-00003
     }
 
+    /**
+     * Method: Consulta Proyectos por Identificar nombre del Proyecto PGC de la API
+     * Function: FND-00004
+     * @Route("/project/find-project-name", name="findProjectForName")
+     * Description: Funcion de consulta del Projecto de la API, por su Nombre PGC
+     * unico registrado en la BD de la PGC.
+     * @param authorization Token de la API, generado por el EndPoint /login      
+     * @param json $codigoPgc Identificardor varcChar del Proyecto
+     */
+    public function findProjectForNameAction(Request $request) {
+        // Propiedades del Metodo
+        // Service Maneger
+        $helpers = $this->get("app.helpers");
+
+        // Validamos los datos del Json
+        $json = $request->get("json", null);
+        $params = json_decode($json);
+
+        // Array para user con el Response
+        $data = array();
+
+        // Valid Token
+        $hash = $request->get("authorization", null);
+        $authCheck = $helpers->authCheck($hash);
+
+        // Validamos el hash
+        if ($authCheck == true) {
+            // Evalua los datos del Json
+            if ($json != null) {
+                // Instancia del Doctrine para Generar las Entidades
+                $em = $this->getDoctrine()->getManager();
+
+                // Parametros del Json, desglosados            
+                $createdDate = new \DateTime("now");
+
+                $name_pgc = ( isset($params->nombreProyecto) ) ? $params->nombreProyecto : null;
+
+                /*
+                 * Todos los proyectos registrados en la PGC, con filtros 
+                 * (idProjecto) y con sus respectivas relaciones para los datos 
+                 * generales.
+                 */
+                /*$proyectoPGCCode = $em->getRepository("BackendBundle:TblProyectos")->findBy(
+                        array(
+                            "codigoPgc" => $name_pgc
+                        )
+                );*/
+
+
+                $proyectoPGCCode = $this->getDoctrine()
+                        ->getRepository('BackendBundle:TblProyectos');
+                $query = $proyectoPGCCode->createQueryBuilder('a')
+                        ->where('a.nombreProyecto LIKE :title')
+                        ->setParameter('title', '%' . $name_pgc . '%')
+                        ->getQuery();
+                
+                $toto = $query->getResult();
+
+                // Conteo de los Registros
+                $countProjects = count($toto);
+
+                if ($countProjects > 0) {
+                    $data = array(
+                        "status" => "success",
+                        "code" => 200,
+                        "msg" => "En hora buena, tus datos se han obtenido de forma satisfactoria !!",
+                        "totalRecords" => $countProjects,
+                        "data" => $toto,
+                    );
+                } else {
+                    $data = array(
+                        "status" => "error",
+                        "code" => 300,
+                        "msg" => "No existe un Proyecto con el Codigo Solictado !!",
+                        "totalRecords" => $countProjects,
+                        "data" => $toto,
+                    );
+                }
+            } else {
+                $data = array(
+                    "status" => "error",
+                    "code" => 400,
+                    "msg" => "Proyecto no encontrado, no se ha enviado la información del ID correctamente !!",
+                );
+            } // FIN | Evalua Json
+        } else {
+            $data = array(
+                "status" => "error",
+                "code" => "400",
+                "msg" => "Error, Authorization not valid. Tu sessión a caducado, por favor cierra y vuelve a iniciar para continuar !!",
+            );
+        }
+
+        // Retorno de la Funcion
+        return $helpers->json($data);
+
+        // FIN | FND-00004
+    }
+
 }
