@@ -13,3 +13,9 @@ app_user:
 app_project:
     resource: "@AppBundle/Resources/config/routing/project.yml"
     prefix: /project
+    
+## Routing for Agencys
+app_agency:
+    resource: "@AppBundle/Resources/config/routing/agency.yml"
+    prefix: /agency   
+ 

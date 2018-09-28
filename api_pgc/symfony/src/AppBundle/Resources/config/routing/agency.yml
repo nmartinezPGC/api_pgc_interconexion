@@ -1,0 +1,53 @@
+## YAML Template.
+## Routing for agencys into PGC
+
+## Routing for All AdmonFinancieros into PGC
+agency_allAdmonFinanc:
+    path: /find-all-admon-financ
+    defaults: { _controller: "AppBundle:Agency/Agency:findAllAdmonFinanc" }
+    methods: POST
+
+## Routing for All AgenciaBeneficiaria into PGC
+agency_allAgencyBeneficiary:
+    path: /find-all-agency-beneficiary
+    defaults: { _controller: "AppBundle:Agency/Agency:findAllAgencyBeneficiary" }
+    methods: POST
+    
+## Routing for All AgenciaEjecutora into PGC
+agency_allAgencyExecutings:
+    path: /find-all-agency-executing
+    defaults: { _controller: "AppBundle:Agency/Agency:findAllAgencyExecutings" }
+    methods: POST
+    
+## Routing for All SocioDesarrollo into PGC
+agency_allDonors:
+    path: /find-all-donors
+    defaults: { _controller: "AppBundle:Agency/Agency:findAllDonors" }
+    methods: POST
+ 
+## *****************************************************************************
+
+
+## Routing for search AdmonFinanciero into PGC, with ID project in PGC
+agency_projectAdmonFinac:
+    path: /find-project-admon-financ
+    defaults: { _controller: "AppBundle:Agency/Agency:findProjectForIdAdmonFinanc" }
+    methods: POST
+    
+## Routing for search AgenciaBeneficiaria into PGC, with ID project in PGC
+agency_projectAgencyBeneficiary:
+    path: /find-project-agency-beneficiary
+    defaults: { _controller: "AppBundle:Agency/Agency:findProjectForIdAgencyBeneficiary" }
+    methods: POST
+    
+## Routing for search AgenciaEjecutora into PGC, with ID project in PGC
+agency_projectAgencyExecuting:
+    path: /find-project-agency-executing
+    defaults: { _controller: "AppBundle:Agency/Agency:findProjectForIdAgencyExecuting" }
+    methods: POST
+    
+## Routing for search SocioDesarrollo into PGC, with ID project in PGC
+agency_projectDonors:
+    path: /find-project-donors
+    defaults: { _controller: "AppBundle:Agency/Agency:findProjectForIdDonors" }
+    methods: POST

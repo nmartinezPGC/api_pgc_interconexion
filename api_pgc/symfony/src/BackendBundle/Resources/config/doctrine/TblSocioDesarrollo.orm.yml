@@ -1,0 +1,46 @@
+BackendBundle\Entity\TblSocioDesarrollo:
+    type: entity
+    table: tbl_socio_desarrollo
+    indexes:
+        tbl_socio_desarrollo_id_proyecto_idx:
+            columns:
+                - id_proyecto
+        fki_organizacion_socio:
+            columns:
+                - id_organizacion
+    id:
+        idRegistro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_registro
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProyecto:
+            type: bigint
+            nullable: true
+            options:
+                unsigned: false
+            column: id_proyecto
+        nombreSocioDesarrollo:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: nombre_socio_desarrollo
+    manyToOne:
+        idOrganizacion:
+            targetEntity: TblOrganizaciones
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_organizacion:
+                    referencedColumnName: id_org
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

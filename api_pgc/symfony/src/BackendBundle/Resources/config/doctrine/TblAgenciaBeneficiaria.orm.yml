@@ -1,0 +1,43 @@
+BackendBundle\Entity\TblAgenciaBeneficiaria:
+    type: entity
+    table: tbl_agencia_beneficiaria
+    indexes:
+        IDX_E64D5B652FE17928:
+            columns:
+                - id_organizacion
+    id:
+        idRegistro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_registro
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProyecto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_proyecto
+        nombreAgenciaBeneficiaria:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: nombre_agencia_beneficiaria
+    manyToOne:
+        idOrganizacion:
+            targetEntity: TblOrganizaciones
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_organizacion:
+                    referencedColumnName: id_org
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

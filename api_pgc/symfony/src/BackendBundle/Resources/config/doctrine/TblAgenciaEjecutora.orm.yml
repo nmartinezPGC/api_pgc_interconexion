@@ -1,0 +1,46 @@
+BackendBundle\Entity\TblAgenciaEjecutora:
+    type: entity
+    table: tbl_agencia_ejecutora
+    indexes:
+        tbl_agencia_ejecutora_id_proyecto_idx:
+            columns:
+                - id_proyecto
+        fki_organizacion_ejecutor:
+            columns:
+                - id_organizacion
+    id:
+        idRegistro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_registro
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProyecto:
+            type: bigint
+            nullable: true
+            options:
+                unsigned: false
+            column: id_proyecto
+        nombreAgenciaEjecutora:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: nombre_agencia_ejecutora
+    manyToOne:
+        idOrganizacion:
+            targetEntity: TblOrganizaciones
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_organizacion:
+                    referencedColumnName: id_org
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
