@@ -6,22 +6,16 @@ BackendBundle\Entity\TblProyectos:
             columns:
                 - id_estado
     id:
-        idRegistro:
-            type: integer
+        idProjecto:
+            type: bigint
             nullable: false
             options:
                 unsigned: false
             id: true
-            column: id_registro
+            column: id_projecto
             generator:
                 strategy: SEQUENCE
     fields:
-        idProjecto:
-            type: bigint
-            nullable: true
-            options:
-                unsigned: false
-            column: id_projecto
         codigoPgc:
             type: string
             nullable: true
@@ -92,6 +86,12 @@ BackendBundle\Entity\TblProyectos:
             options:
                 fixed: false
             column: codigo_sefin
+        idRegistro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_registro
         fechaEfectividadConv:
             type: string
             nullable: true

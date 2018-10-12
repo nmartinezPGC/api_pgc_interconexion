@@ -1,0 +1,21 @@
+## YAML Template.
+## Routing for Programs into PGC
+
+## Routing for All Programs into PGC
+sector_allPrograms:
+    path: /find-all-programs
+    defaults: { _controller: "AppBundle:Program/Program:findAllPrograms" }
+    methods: POST
+
+## Routing for Unique Program into PGC
+sector_programUnique:
+    path: /find-program
+    defaults: { _controller: "AppBundle:Program/Program:programUnique" }
+    methods: POST
+    
+## Routing for search Programs into PGC, with ID project in PGC
+agency_projectPrograms:
+    path: /find-project-program
+    defaults: { _controller: "AppBundle:Program/Program:findProjectForIdProgram" }
+    methods: POST
+    

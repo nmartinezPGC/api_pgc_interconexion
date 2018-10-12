@@ -1,0 +1,68 @@
+BackendBundle\Entity\TblProgramas:
+    type: entity
+    table: tbl_programas
+    indexes:
+        fki_padre_pro:
+            columns:
+                - id_padre_programa
+        IDX_20352C31CE25AE0A:
+            columns:
+                - id_categoria
+    id:
+        idPrograma:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_programa
+            generator:
+                strategy: SEQUENCE
+    fields:
+        codigoPrograma:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: codigo_programa
+        nombrePrograma:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: nombre_programa
+        nivelPrograma:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nivel_programa
+        borrado:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+    manyToOne:
+        idCategoria:
+            targetEntity: TblCategorias
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_categoria:
+                    referencedColumnName: id_categoria
+            orphanRemoval: false
+        idPadrePrograma:
+            targetEntity: TblProgramas
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_padre_programa:
+                    referencedColumnName: id_programa
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

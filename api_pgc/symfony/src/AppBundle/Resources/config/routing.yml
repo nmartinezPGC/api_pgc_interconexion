@@ -18,4 +18,13 @@ app_project:
 app_agency:
     resource: "@AppBundle/Resources/config/routing/agency.yml"
     prefix: /agency   
- 
+
+## Routing for Sectors
+app_sector:
+    resource: "@AppBundle/Resources/config/routing/sector.yml"
+    prefix: /sector
+
+## Routing for Programs
+app_program:
+    resource: "@AppBundle/Resources/config/routing/program.yml"
+    prefix: /program

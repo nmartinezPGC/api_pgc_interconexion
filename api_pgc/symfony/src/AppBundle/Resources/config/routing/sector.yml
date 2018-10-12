@@ -1,0 +1,21 @@
+## YAML Template.
+## Routing for Sectors into PGC
+
+## Routing for All Sectors into PGC
+sector_allSectors:
+    path: /find-all-sectors
+    defaults: { _controller: "AppBundle:Sector/Sector:findAllSectors" }
+    methods: POST
+
+## Routing for Unique Sector into PGC
+sector_sectorUnique:
+    path: /find-sector
+    defaults: { _controller: "AppBundle:Sector/Sector:sectorUnique" }
+    methods: POST
+    
+## Routing for search Sectors into PGC, with ID project in PGC
+agency_projectSectors:
+    path: /find-project-sector
+    defaults: { _controller: "AppBundle:Sector/Sector:findProjectForIdSector" }
+    methods: POST
+    

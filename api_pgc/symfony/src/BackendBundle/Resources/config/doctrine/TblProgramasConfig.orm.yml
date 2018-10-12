@@ -1,46 +1,43 @@
-BackendBundle\Entity\TblAdmonFinanciero:
+BackendBundle\Entity\TblProgramasConfig:
     type: entity
-    table: tbl_admon_financiero
+    table: tbl_programas_config
     indexes:
-        fki_DFDF:
+        fki_config_theme:
             columns:
-                - id_proyecto
-        IDX_614C90042FE17928:
-            columns:
-                - id_organizacion
+                - id_herencia
     id:
-        idRegistro:
+        idProgramaConfig:
             type: integer
             nullable: false
             options:
                 unsigned: false
             id: true
-            column: id_registro
+            column: id_programa_config
             generator:
                 strategy: SEQUENCE
     fields:
-        idProyecto:
-            type: integer
+        permiteNiveles:
+            type: boolean
             nullable: true
             options:
-                unsigned: false
-            column: id_proyecto
-        nombreAdmonFinanciero:
+                default: true
+            column: permite_niveles
+        nombreProgramaConfig:
             type: string
             nullable: true
             length: 150
             options:
                 fixed: false
-            column: nombre_admon_financiero
+            column: nombre_programa_config
     manyToOne:
-        idOrganizacion:
-            targetEntity: TblOrganizaciones
+        idHerencia:
+            targetEntity: TblProgramas
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_organizacion:
-                    referencedColumnName: id_org
+                id_herencia:
+                    referencedColumnName: id_programa
             orphanRemoval: false
     lifecycleCallbacks: {  }

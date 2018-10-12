@@ -1,0 +1,49 @@
+BackendBundle\Entity\TblProyectoSector:
+    type: entity
+    table: tbl_proyecto_sector
+    indexes:
+        fki_sector_class:
+            columns:
+                - sector_class_id
+        IDX_4E90BF16D946C05:
+            columns:
+                - id_sector
+    id:
+        idProyectoSector:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_proyecto_sector
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProyecto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_proyecto
+    manyToOne:
+        idSector:
+            targetEntity: TblSectores
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_sector:
+                    referencedColumnName: id_sector
+            orphanRemoval: false
+        sectorClass:
+            targetEntity: TblSectoresClasificacion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sector_class_id:
+                    referencedColumnName: sector_class_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

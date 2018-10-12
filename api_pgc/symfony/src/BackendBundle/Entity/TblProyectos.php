@@ -458,4 +458,18 @@ class TblProyectos
     {
         return $this->fechaFinalizacionConv;
     }
+
+    /**
+     * Set idRegistro
+     *
+     * @param integer $idRegistro
+     *
+     * @return TblProyectos
+     */
+    public function setIdRegistro($idRegistro)
+    {
+        $this->idRegistro = $idRegistro;
+
+        return $this;
+    }
 }
