@@ -1,0 +1,24 @@
+## YAML Template.
+## Routing for fundings into PGC
+
+## Routing for All Fundings into PGC
+funding_allFundings:
+    path: /find-all-fundings
+    defaults: { _controller: "AppBundle:Funding/Funding:findAllFundings" }
+    methods: POST
+
+## Routing for search Funding Group into PGC, with ID location in PGC
+## TRANSACTION_TYPE = 0 ( COMPROMISOS ) 
+## TRANSACTION_TYPE = 1 ( DETALLE DE INTERESES DEVENGADOS Y COMPROMISOS )   
+## TRANSACTION_TYPE = 2 ( GASTOS )
+funding_findFundingTransactionType:
+    path: /find-funding-transaction-type
+    defaults: { _controller: "AppBundle:Funding/Funding:findFundingTransactionType" }
+    methods: POST 
+ 
+## Routing for search Proyect with Funding into PGC, with ID project in PGC
+funding_projectAllFundings:
+    path: /find-project-funding
+    defaults: { _controller: "AppBundle:Funding/Funding:findProjectForIdFunding" }
+    methods: POST
+## *****************************************************************************

@@ -1,46 +1,45 @@
-BackendBundle\Entity\TblAgenciaEjecutora:
+BackendBundle\Entity\TblProyectoLocalidad:
     type: entity
-    table: tbl_agencia_ejecutora
+    table: tbl_proyecto_localidad
     indexes:
-        fki_organizacion_ejecutor:
-            columns:
-                - id_organizacion
-        tbl_agencia_ejecutora_id_proyecto_idx:
+        idx_proyecto_localidad:
             columns:
                 - id_proyecto
+        idx_localidades:
+            columns:
+                - id_localidad
     id:
-        idRegistro:
+        idProyectoLocalidad:
             type: integer
             nullable: false
             options:
                 unsigned: false
             id: true
-            column: id_registro
+            column: id_proyecto_localidad
             generator:
                 strategy: SEQUENCE
     fields:
         idProyecto:
-            type: bigint
+            type: integer
             nullable: true
             options:
                 unsigned: false
             column: id_proyecto
-        nombreAgenciaEjecutora:
-            type: string
+        porcentajePart:
+            type: float
             nullable: true
-            length: 300
-            options:
-                fixed: false
-            column: nombre_agencia_ejecutora
+            precision: 10
+            scale: 0
+            column: porcentaje_part
     manyToOne:
-        idOrganizacion:
-            targetEntity: TblOrganizaciones
+        idLocalidad:
+            targetEntity: TblLocalidades
             cascade: {  }
             fetch: LAZY
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id_organizacion:
-                    referencedColumnName: id_org
+                id_localidad:
+                    referencedColumnName: id_localidad
             orphanRemoval: false
     lifecycleCallbacks: {  }

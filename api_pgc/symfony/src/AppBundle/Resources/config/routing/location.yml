@@ -1,0 +1,21 @@
+## YAML Template.
+## Routing for locations into PGC
+
+## Routing for All Locations into PGC
+location_allLocations:
+    path: /find-all-locations
+    defaults: { _controller: "AppBundle:Location/Location:findAllLocations" }
+    methods: POST
+
+## Routing for search Location into PGC, with ID location in PGC
+location_findLocation:
+    path: /find-location
+    defaults: { _controller: "AppBundle:Location/Location:findLocation" }
+    methods: POST 
+ 
+## Routing for search Proyect with Location into PGC, with ID project in PGC
+location_projectLocation:
+    path: /find-project-location
+    defaults: { _controller: "AppBundle:Location/Location:findProjectForIdLocation" }
+    methods: POST
+## *****************************************************************************

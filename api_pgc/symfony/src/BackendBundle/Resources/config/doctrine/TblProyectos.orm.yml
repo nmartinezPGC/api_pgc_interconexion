@@ -5,6 +5,9 @@ BackendBundle\Entity\TblProyectos:
         fki_id_estado:
             columns:
                 - id_estado
+        idx_proyecto:
+            columns:
+                - id_projecto
     id:
         idProjecto:
             type: bigint

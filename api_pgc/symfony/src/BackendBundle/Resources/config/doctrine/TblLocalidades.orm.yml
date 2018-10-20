@@ -1,0 +1,50 @@
+BackendBundle\Entity\TblLocalidades:
+    type: entity
+    table: tbl_localidades
+    indexes:
+        fki_localidad_1:
+            columns:
+                - id_categoria_localidad
+        fki_localidad_2:
+            columns:
+                - id_region_localidad
+    id:
+        idLocalidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_localidad
+            generator:
+                strategy: SEQUENCE
+    fields:
+        nombreLocalidad:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: nombre_localidad
+    manyToOne:
+        idCategoriaLocalidad:
+            targetEntity: TblCategoriaLocalidad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_categoria_localidad:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idRegionLocalidad:
+            targetEntity: TblCategoriaLocalidad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_region_localidad:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

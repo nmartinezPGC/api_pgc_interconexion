@@ -5,6 +5,9 @@ BackendBundle\Entity\TblProyectoPrograma:
         fki_program_proy:
             columns:
                 - id_programa
+        idx_proyecto_programa:
+            columns:
+                - id_proyecto
         IDX_F12D41A7DF4AB2EC:
             columns:
                 - id_programa_config
@@ -26,16 +29,6 @@ BackendBundle\Entity\TblProyectoPrograma:
                 unsigned: false
             column: id_proyecto
     manyToOne:
-        idProgramaConfig:
-            targetEntity: TblProgramasConfig
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                id_programa_config:
-                    referencedColumnName: id_programa_config
-            orphanRemoval: false
         idPrograma:
             targetEntity: TblProgramas
             cascade: {  }
@@ -45,5 +38,15 @@ BackendBundle\Entity\TblProyectoPrograma:
             joinColumns:
                 id_programa:
                     referencedColumnName: id_programa
+            orphanRemoval: false
+        idProgramaConfig:
+            targetEntity: TblProgramasConfig
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_programa_config:
+                    referencedColumnName: id_programa_config
             orphanRemoval: false
     lifecycleCallbacks: {  }

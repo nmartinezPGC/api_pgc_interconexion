@@ -39,6 +39,20 @@ BackendBundle\Entity\TblAccesos:
             length: 300
             options:
                 fixed: false
+        emailAcceso:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+            column: email_acceso
+        accionUsuario:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+            column: accion_usuario
     manyToOne:
         idUsuario:
             targetEntity: TblUsuarios

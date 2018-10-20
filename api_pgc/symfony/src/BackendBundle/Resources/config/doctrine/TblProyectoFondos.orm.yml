@@ -1,0 +1,105 @@
+BackendBundle\Entity\TblProyectoFondos:
+    type: entity
+    table: tbl_proyecto_fondos
+    indexes:
+        idx_organizaciones_1:
+            columns:
+                - id_organizacion
+        idx_proyecto_fondos:
+            columns:
+                - id_proyecto
+        idx_tipo_organizacion:
+            columns:
+                - id_tipo_organizacion
+        idx_grupo_organizacion:
+            columns:
+                - id_grupo_organizaicon
+    id:
+        idProyectoFondo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_proyecto_fondo
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProyecto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_proyecto
+        tipoTransaccion:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: tipo_transaccion
+        montoTransaccion:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monto_transaccion
+        modalidadAyuda:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: modalidad_ayuda
+        tipoCooperacion:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: tipo_cooperacion
+        tipoMoneda:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: tipo_moneda
+        fechaTransaccion:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: fecha_transaccion
+    manyToOne:
+        idOrganizacion:
+            targetEntity: TblOrganizaciones
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_organizacion:
+                    referencedColumnName: id_org
+            orphanRemoval: false
+        idGrupoOrganizaicon:
+            targetEntity: TblOrganizacionesGrupo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_grupo_organizaicon:
+                    referencedColumnName: id_org_grupo
+            orphanRemoval: false
+        idTipoOrganizacion:
+            targetEntity: TblOrganizacionesTipo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tipo_organizacion:
+                    referencedColumnName: id_org_type
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

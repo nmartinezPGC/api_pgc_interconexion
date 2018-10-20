@@ -167,4 +167,62 @@ class TblAccesos
     {
         return $this->idUsuario;
     }
+    /**
+     * @var string
+     */
+    private $emailAcceso;
+
+    /**
+     * @var string
+     */
+    private $accionUsuario;
+
+
+    /**
+     * Set emailAcceso
+     *
+     * @param string $emailAcceso
+     *
+     * @return TblAccesos
+     */
+    public function setEmailAcceso($emailAcceso)
+    {
+        $this->emailAcceso = $emailAcceso;
+
+        return $this;
+    }
+
+    /**
+     * Get emailAcceso
+     *
+     * @return string
+     */
+    public function getEmailAcceso()
+    {
+        return $this->emailAcceso;
+    }
+
+    /**
+     * Set accionUsuario
+     *
+     * @param string $accionUsuario
+     *
+     * @return TblAccesos
+     */
+    public function setAccionUsuario($accionUsuario)
+    {
+        $this->accionUsuario = $accionUsuario;
+
+        return $this;
+    }
+
+    /**
+     * Get accionUsuario
+     *
+     * @return string
+     */
+    public function getAccionUsuario()
+    {
+        return $this->accionUsuario;
+    }
 }

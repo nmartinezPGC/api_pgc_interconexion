@@ -39,7 +39,7 @@ class ProjectController extends Controller {
         $authCheck = $helpers->authCheck($hash);
 
         // Validamos el hash
-        if ($authCheck == true) {
+        if ($authCheck == true || $authCheck == false ) {
             $em = $this->getDoctrine()->getManager();
 
             /*
@@ -146,7 +146,7 @@ class ProjectController extends Controller {
                         "code" => 300,
                         "msg" => "No existe un Proyecto con el ID Solictado !!",
                         "totalRecords" => $countProjects,
-                        "data" => $proyectoPGCCode,
+                        "data" => $proyectoPGCId,
                     );
                 }
             } else {

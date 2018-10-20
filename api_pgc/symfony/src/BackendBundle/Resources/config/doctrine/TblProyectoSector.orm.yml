@@ -5,6 +5,9 @@ BackendBundle\Entity\TblProyectoSector:
         fki_sector_class:
             columns:
                 - sector_class_id
+        idx_proyecto_sectror:
+            columns:
+                - id_proyecto
         IDX_4E90BF16D946C05:
             columns:
                 - id_sector
@@ -26,16 +29,6 @@ BackendBundle\Entity\TblProyectoSector:
                 unsigned: false
             column: id_proyecto
     manyToOne:
-        idSector:
-            targetEntity: TblSectores
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                id_sector:
-                    referencedColumnName: id_sector
-            orphanRemoval: false
         sectorClass:
             targetEntity: TblSectoresClasificacion
             cascade: {  }
@@ -45,5 +38,15 @@ BackendBundle\Entity\TblProyectoSector:
             joinColumns:
                 sector_class_id:
                     referencedColumnName: sector_class_id
+            orphanRemoval: false
+        idSector:
+            targetEntity: TblSectores
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_sector:
+                    referencedColumnName: id_sector
             orphanRemoval: false
     lifecycleCallbacks: {  }

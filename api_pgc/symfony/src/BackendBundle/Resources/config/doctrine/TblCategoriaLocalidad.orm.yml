@@ -1,0 +1,67 @@
+BackendBundle\Entity\TblCategoriaLocalidad:
+    type: entity
+    table: tbl_categoria_localidad
+    indexes:
+        fki_cat_localidad_2:
+            columns:
+                - id_padre_catagoria
+        IDX_6D4525BBCE25AE0A:
+            columns:
+                - id_categoria
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        nombreCatLocalidad:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: nombre_cat_localidad
+        codigo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        iso3:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+        iso:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+    manyToOne:
+        idCategoria:
+            targetEntity: TblCategorias
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_categoria:
+                    referencedColumnName: id_categoria
+            orphanRemoval: false
+        idPadreCatagoria:
+            targetEntity: TblCategoriaLocalidad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_padre_catagoria:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

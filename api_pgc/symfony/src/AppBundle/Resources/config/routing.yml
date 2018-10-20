@@ -28,3 +28,13 @@ app_sector:
 app_program:
     resource: "@AppBundle/Resources/config/routing/program.yml"
     prefix: /program
+    
+## Routing for Locations
+app_location:
+    resource: "@AppBundle/Resources/config/routing/location.yml"
+    prefix: /location
+    
+## Routing for Fundings
+app_funding:
+    resource: "@AppBundle/Resources/config/routing/fundings.yml"
+    prefix: /funding
