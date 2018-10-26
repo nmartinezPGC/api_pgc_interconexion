@@ -47,8 +47,12 @@ class FundingController extends Controller {
              * sin filtros y con
              * sus respectivas relaciones para los datos generales.
              */
-            $fondosPGCAll = $em->getRepository("BackendBundle:TblProyectoFondos")->findAll();
+            // $fondosPGCAll = $em->getRepository("BackendBundle:TblProyectoFondos")->findAll();
+            
+            $query = $em->createQuery("SELECT p FROM BackendBundle:TblProyectoFondos p");
 
+            $fondosPGCAll = $query->getResult();
+                    
             $countFondos = count( $fondosPGCAll );
 
             if ($countFondos > 0) {
